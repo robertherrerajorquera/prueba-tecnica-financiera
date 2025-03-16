@@ -53,3 +53,24 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
     - --routing= true -> agrega/genera un archivo nuevo llamado "app-routing" el cual tiene la base del rutaje de nuestro proyecto de angular.
     - style=scss -> por defecto se usa css, pero al hacer esto se difine scss como el preprocesador css, asi podremos hacer variables de estilo mas comodamente.
     - --directory=./ -> le decimos al comando que use el directorio alctual y no cree uno nuevo, asi se genera directamente en la carpeta que estamos.
+- Se instalara bootstrap version 5 
+    npm i bootstrap@5.3.3
+- Se importa en el scss global.
+- Se crean modulo y componente de: 
+    - home : donde se cargaran todos la lista general
+    - errorPage : donde se muestran los errores posibles
+    - detalleGeneral : se muestra el detalle de los valores para el indicador seleccionado. se ingresa a travez de su nombre.
+    - detalleEspecifico : se muestra el detalle de un indicador en particular. Al seleccionar el icono a un costado, segun el pdf esta al lado izq. pero en la imagen de referencia esta al lado derecho.
+    # explicacion comando creacion modulo componente
+    - Primero en la consola nos posicionamos en el directorio donde crearemos el modulo y/o componente. en nuestro caso dentro de "prueba-tecnica-financiera\src\app\components" ya que aqui tendremos nuestros componentes.
+    - ng generate module <nombreDelModulo> => para crear un modulo, ejemplo: para crear el modulo home, ng generate module home y se creara el modulo en el directorio que estes estes posicionado.
+    - ng generate component <nombreDelComponente> => se crea un componte, ejemplo: para crear el componente home, ng generate component home y se creara el componente en el directorio que estes posicionado.
+## orden de trabajo
+- Se creara cada vista propuesta en el pdf en el orden propuesto. La primera vista se mostrara en el componente home, la segunda vista en el componente detalleGeneral y la tercera vista en detalleEspecifico. Para poder avanzar con la informacion en la mano por asi decirlo, para esto se generara un nuevo servicio el cual nos permitira el acceso a la informacion de la api de la url que se menciono mas arriba.
+- Generacion de servicio para el consumo de la api:
+    ng g service usoApi
+- Generacion de un modelo para definir cada propiedad y evitar el uso de any.
+    ng g interface indicadores
+
+## Dato
+- Se puede usar la inicial de cada propiedad a trabajar con ng, para ser mas especifico, como ejemplo para generate => g, para component => c, para services => s, para interfaces => i.
