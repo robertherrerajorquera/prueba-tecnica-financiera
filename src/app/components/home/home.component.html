@@ -1,1 +1,7 @@
-<p>home works!</p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of listaIndicadores; let i = index">
+    <span (click)="redirectDetalleGeneral(item)">{{ item }}</span>
+    <fa-icon [icon]="faCircleInfo" style="height: 20px; width:20px; float:right;" (click)="redirectDetalleEspecifico(item)"></fa-icon>
+  </li>
+</ul>
+

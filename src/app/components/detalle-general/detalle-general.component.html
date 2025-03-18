@@ -1,1 +1,23 @@
 <p>detalle-general works!</p>
+
+<!-- <ul class="list-group">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of detallesGenerales.Dolares; let i = index">
+      <span>Valor: {{ item.Valor }} - Fecha: {{ item.Fecha }}</span>
+    </li>
+  </ul> -->
+
+  <ng-container *ngIf="isLoading; else showData">
+    <ng-template #loading>
+      <p>Cargando datos...</p>
+    </ng-template>
+  </ng-container>
+
+  <!-- Muestra los datos cuando se ha terminado de cargar -->
+  <ng-template #showData>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of detallesGenerales.Dolares">
+        <span>{{ item.Fecha }}: {{ item.Valor }}</span>
+      </li>
+    </ul>
+  </ng-template>
