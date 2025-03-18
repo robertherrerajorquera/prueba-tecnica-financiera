@@ -1,23 +1,20 @@
-<p>detalle-general works!</p>
+<ng-container *ngIf="isLoading; else showData">
+  <p>Cargando datos...</p>
+</ng-container>
 
-<!-- <ul class="list-group">
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let item of detallesGenerales.Dolares; let i = index">
-      <span>Valor: {{ item.Valor }} - Fecha: {{ item.Fecha }}</span>
-    </li>
-  </ul> -->
+<ng-template #showData>
+  <span>Tipo Moneda: {{ tipoIndicador }}</span>
 
-  <ng-container *ngIf="isLoading; else showData">
-    <ng-template #loading>
-      <p>Cargando datos...</p>
-    </ng-template>
-  </ng-container>
-
-  <!-- Muestra los datos cuando se ha terminado de cargar -->
-  <ng-template #showData>
+  <ng-container *ngIf="detallesGenerales.Monedas && detallesGenerales.Monedas.length > 0; else noData">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let item of detallesGenerales.Dolares">
-        <span>{{ item.Fecha }}: {{ item.Valor }}</span>
+      <li class="list-group-item flex-container-list" *ngFor="let item of detallesGenerales.Monedas">
+        <span class="flex-items-list">{{ item.Fecha }}</span>
+        <span class="flex-items-list">{{ item.Valor }}</span>
       </li>
     </ul>
+  </ng-container>
+
+  <ng-template #noData>
+    <p>No hay datos disponibles.</p>
   </ng-template>
+</ng-template>

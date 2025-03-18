@@ -6,14 +6,14 @@ export class calcularDias {
   anoActual: number = 0;
   diaAnterior: string ="";
   mesAnterior: string ="";
-  anoAnterio: number = 0;
+  anoAnterior: number = 0;
 
   constructor() {
     this.fechaActual = new Date();
   }
   public treintaDias() {
-    let treintaDiasAtras: Date = new Date();
-    treintaDiasAtras.setDate(this.fechaActual.getDate() - 30);
+    let treintaDiasAtras: Date = new Date(this.fechaActual); 
+    treintaDiasAtras.setDate(treintaDiasAtras.getDate() - 30);
     //toLocaleDateString('cl-ES')
     this.seccionarFecha(treintaDiasAtras);
     return { fechaAnterio: treintaDiasAtras, fechaActual: this.fechaActual };
@@ -29,7 +29,7 @@ export class calcularDias {
     this.anoActual = this.fechaActual.getFullYear();
     this.diaAnterior = this.anteponerCero(fechaAnterior.getDate());
     this.mesAnterior = this.anteponerCero(fechaAnterior.getMonth() + 1);
-    this.anoAnterio = fechaAnterior.getFullYear();
+    this.anoAnterior = fechaAnterior.getFullYear();
   }
   private anteponerCero(value: number): string {
     return value % 1 === 0 && value < 10 ? `0${value}` : value.toString();
