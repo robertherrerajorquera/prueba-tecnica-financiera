@@ -86,7 +86,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 - Creación de lista de indicadores en home, para poder redireccionar a la informacion del detalle de la api.
 - Creación de funciones base para controlar fechas para las consultas
 - Creación de interfaz para el dolar
-- returno de consulta segun interfaz 
+- retorno de consulta segun interfaz 
+- Ajuste servicio para consumir una lista u otra para 30 dias
+- Modificacion estilo base lista home 
+- Creacion consulta servicio para consulta ipc y uf del año actual
+- Modificacion lista opciones menu de indicadores en el home
 
 ## Dato
 
